@@ -1,5 +1,5 @@
 {
-  "name": "@du/eslint-config",
+  "name": "du-eslint-config",
   "version": "1.0.0",
   "description": "Common ESLint configuration for projects",
   "main": "index.js",
@@ -23,6 +23,7 @@
     "rules/"
   ],
   "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "peerDependencies": {
