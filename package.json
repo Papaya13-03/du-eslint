@@ -1,27 +1,21 @@
 {
   "name": "@du/eslint",
   "version": "1.0.0",
-  "description": "Common ESLint configuration for Du's projects",
+  "description": "Common ESLint configuration for projects",
   "main": "index.js",
   "type": "commonjs",
-  "keywords": ["eslint", "config", "lint", "typescript", "prettier"],
+  "keywords": [
+    "eslint",
+    "config",
+    "lint",
+    "typescript",
+    "prettier"
+  ],
   "author": "Du Nguyen",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/du-nguyen/eslint-config-du.git"
-  },
-  "peerDependencies": {
-    "eslint": ">=8.0.0",
-    "@typescript-eslint/parser": ">=6.0.0",
-    "@typescript-eslint/eslint-plugin": ">=6.0.0",
-    "prettier": ">=3.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^9.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "prettier": "^3.0.0"
+    "url": "https://github.com/Papaya13-03/du-eslint"
   },
   "scripts": {
     "lint": "eslint . --ext .js,.ts",
@@ -29,5 +23,18 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "typescript-eslint": "^8.46.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "eslint": "^9.39.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-sonarjs": "^3.0.5",
+    "prettier": "^3.6.2"
   }
 }
