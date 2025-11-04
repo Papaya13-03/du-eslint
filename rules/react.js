@@ -1,64 +1,43 @@
-module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
-    es2021: true,
-  },
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
+import js from "@eslint/js";
+import prettier from "eslint-config-prettier";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import reactPlugin from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import sonarjs from "eslint-plugin-sonarjs";
+import tseslint from "typescript-eslint";
+
+export default [
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  prettier,
+  {
+    files: ["**/*.{js,ts,tsx}"],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        ecmaFeatures: { jsx: true },
+      },
+    },
+    plugins: {
+      react: reactPlugin,
+      "react-hooks": reactHooks,
+      "jsx-a11y": jsxA11y,
+      sonarjs,
+    },
+    rules: {
+      eqeqeq: ["error", "always"],
+      "no-console": "warn",
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "sonarjs/no-duplicate-string": "warn",
+      "@typescript-eslint/no-unused-vars": ["error"],
+    },
+    settings: {
+      react: { version: "detect" },
     },
   },
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
-  plugins: [
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "sonarjs",
-    "jsx-a11y",
-  ],
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:sonarjs/recommended",
-    "prettier",
-  ],
-  rules: {
-    eqeqeq: ["error", "always"],
-    "no-console": "warn",
-    "no-debugger": "warn",
-
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
-    ],
-    "@typescript-eslint/explicit-function-return-type": "off",
-
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "react/jsx-uses-react": "off",
-    "react/jsx-uses-vars": "error",
-
-    "sonarjs/no-duplicate-string": "warn",
-    "sonarjs/no-identical-functions": "warn",
-    "sonarjs/no-collapsible-if": "warn",
-    "sonarjs/no-all-duplicated-branches": "warn",
-    "sonarjs/cognitive-complexity": ["warn", 20],
-
-    "jsx-a11y/alt-text": "warn",
-    "jsx-a11y/anchor-is-valid": "warn",
-    "jsx-a11y/no-autofocus": "warn",
-  },
-};
+];
