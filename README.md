@@ -1,4 +1,4 @@
-# @du/eslint-config
+# du-eslint-config
 
 > 🧠 Common ESLint configuration for TypeScript, React, and Prettier — used across all Du Nguyen projects.
 
@@ -45,7 +45,7 @@ This config automatically supports React (.jsx, .tsx),
 but you can also import React-specific rules only:
 
 ```bash
-import reactConfig from "@du/eslint-config/rules/react.js";
+import reactConfig from "du-eslint-config/react";
 
-export default [...reactConfig];
+export default reactConfig;
 ```
